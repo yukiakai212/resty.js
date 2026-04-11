@@ -1,0 +1,1 @@
+var d=async t=>{let e=await fetch(t.url,{method:t.method,headers:t.headers,body:t.body}),r,n,a;return{status:e.status,headers:Object.fromEntries(e.headers.entries()),ok:e.ok,async json(){return r===void 0&&(r=await e.json()),r},async text(){return n===void 0&&(n=await e.text()),n},async buffer(){return a||(a=Buffer.from(await e.arrayBuffer())),a}}};export{d as fetchAdapter};
