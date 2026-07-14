@@ -1,5 +1,6 @@
-import { c as HttpAdapter } from '../types-DYxFrMAt.cjs';
+import { H as HttpAdapter } from '../types-DTKySshQ.cjs';
 
-declare const fetchAdapter: HttpAdapter;
+type FetchBody = BodyInit | null | undefined;
+declare const fetchAdapter: HttpAdapter<FetchBody>;
 
-export { fetchAdapter };
+export { type FetchBody, fetchAdapter };

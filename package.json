@@ -1,15 +1,15 @@
 {
   "name": "@yukiakai/resty",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A minimal, clean, and type-safe HTTP client for REST APIs.",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/public.js",
+  "types": "./dist/public.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/public.d.ts",
+      "import": "./dist/public.js",
+      "require": "./dist/public.cjs"
     },
     "./adapters/fetch": {
       "types": "./dist/adapters/fetch.d.ts",
@@ -24,12 +24,15 @@
   },
   "sideEffects": false,
   "scripts": {
-    "test": "npm run build && npx vitest run --reporter verbose --coverage",
-    "format": "prettier --write **/*.{js,ts}",
-    "format:check": "prettier --check **/*.{js,ts}",
+    "test": "npx vitest run --reporter verbose --coverage",
+    "format": "prettier --write **/*.{js,ts,json}",
+    "format:check": "prettier --check **/*.{js,ts,json}",
     "lint": "eslint src/**/*.ts",
+    "typecheck:workspace": "tsc -p tsconfig.workspace.json",
+    "build:public": "tsup --config tsup.public.config.ts",
     "build": "npx tsup",
     "docs": "npx typedoc",
+    "prepare:artifact": "tsx workspace/release/prepareArtifact.ts",
     "prepare": "is-ci || husky"
   },
   "files": [
@@ -69,6 +72,7 @@
     "@eslint/js": "^9.30.1",
     "@types/node": "^24.0.10",
     "@vitest/coverage-v8": "^4.0.15",
+    "@yukiakai/artifact": "^1.0.1",
     "dotenv": "^17.0.1",
     "eslint": "^9.30.0",
     "got": "^14.6.6",

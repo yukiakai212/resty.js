@@ -1,5 +1,7 @@
-import { c as HttpAdapter } from '../types-DYxFrMAt.js';
+import { H as HttpAdapter } from '../types-DTKySshQ.js';
+import { Options } from 'got';
 
-declare const gotAdapter: HttpAdapter;
+type GotBody = Options['body'];
+declare const gotAdapter: HttpAdapter<GotBody>;
 
-export { gotAdapter };
+export { type GotBody, gotAdapter };
