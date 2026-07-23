@@ -1,6 +1,6 @@
 export { FetchBody, fetchAdapter } from './adapters/fetch.cjs';
-import { H as HttpAdapter, R as RequestOptions } from './types-DTKySshQ.cjs';
-export { A as AdapterResponse, a as HttpMethod, b as HttpRequest } from './types-DTKySshQ.cjs';
+import { H as HttpAdapter, R as RequestOptions } from './types-Bw4lD9IP.cjs';
+export { A as AdapterResponse, a as HttpMethod, c as HttpRequest, d as HttpRequestHeaders, Q as QueryInput, b as ResponseType } from './types-Bw4lD9IP.cjs';
 
 declare class HttpClient<TBody> {
     private adapter;
