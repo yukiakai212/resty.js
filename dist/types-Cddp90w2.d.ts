@@ -34,4 +34,4 @@ interface AdapterResponse {
 }
 type HttpAdapter<TBody> = (req: HttpRequest<TBody>) => Promise<AdapterResponse>;
 
-export { type AdapterResponse as A, type HttpAdapter as H, type QueryInput as Q, type RequestOptions as R, HttpMethod as a, ResponseType as b, type HttpRequest as c, type HttpRequestHeaders as d };
+export { type AdapterResponse as A, type HttpAdapter as H, type QueryInput as Q, type RequestOptions as R, type HttpRequestHeaders as a, HttpMethod as b, ResponseType as c, type HttpRequest as d };

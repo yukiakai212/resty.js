@@ -1,15 +1,24 @@
 export { FetchBody, fetchAdapter } from './adapters/fetch.cjs';
-import { H as HttpAdapter, R as RequestOptions } from './types-Bw4lD9IP.cjs';
-export { A as AdapterResponse, a as HttpMethod, c as HttpRequest, d as HttpRequestHeaders, Q as QueryInput, b as ResponseType } from './types-Bw4lD9IP.cjs';
+import { H as HttpAdapter, R as RequestOptions, a as HttpRequestHeaders } from './types-Cddp90w2.cjs';
+export { A as AdapterResponse, b as HttpMethod, d as HttpRequest, Q as QueryInput, c as ResponseType } from './types-Cddp90w2.cjs';
 
-declare class HttpClient<TBody> {
+declare class _HttpClient<TBody> {
     private adapter;
     private baseUrl;
     private defaultHeaders;
     private urlResolver;
     private requestOptionsNormalizer;
-    constructor(adapter: HttpAdapter<TBody>, baseUrl: string, defaultHeaders?: Record<string, string>);
+    constructor(adapter: HttpAdapter<TBody>, baseUrl: string, defaultHeaders: Record<string, string>);
     private request;
+    get<T>(path: string, options: RequestOptions<TBody>): Promise<T>;
+    post<T>(path: string, options: RequestOptions<TBody>): Promise<T>;
+    put<T>(path: string, options: RequestOptions<TBody>): Promise<T>;
+    patch<T>(path: string, options: RequestOptions<TBody>): Promise<T>;
+    delete<T>(path: string, options: RequestOptions<TBody>): Promise<T>;
+}
+
+declare class HttpClient<TBody> extends _HttpClient<TBody> {
+    constructor(adapter: HttpAdapter<TBody>, baseUrl: string, defaultHeaders?: HttpRequestHeaders);
     get<T>(path: string, options?: RequestOptions<TBody>): Promise<T>;
     post<T>(path: string, options?: RequestOptions<TBody>): Promise<T>;
     put<T>(path: string, options?: RequestOptions<TBody>): Promise<T>;
@@ -48,4 +57,4 @@ declare class RestyHttpError<T = unknown> extends RestyError {
     constructor(message: string, status: number, headers: Record<string, string>, data?: T);
 }
 
-export { HttpAdapter, HttpClient, RequestOptions, RestyConfigError, RestyError, RestyHttpError };
+export { HttpAdapter, HttpClient, HttpRequestHeaders, RequestOptions, RestyConfigError, RestyError, RestyHttpError, _HttpClient };

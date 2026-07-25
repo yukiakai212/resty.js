@@ -1,4 +1,4 @@
-import { H as HttpAdapter } from '../types-Bw4lD9IP.js';
+import { H as HttpAdapter } from '../types-Cddp90w2.js';
 import { Options } from 'got';
 
 type GotBody = Options['body'];
